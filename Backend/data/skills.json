@@ -1,0 +1,116 @@
+{
+    "programming": [
+        "python",
+        "java",
+        "c++",
+        "c",
+        "javascript",
+        "typescript",
+        "sql",
+        "bash"
+    ],
+    "web": [
+        "html",
+        "css",
+        "sass",
+        "bootstrap",
+        "tailwind css",
+        "react",
+        "react js",
+        "next js",
+        "node",
+        "node js",
+        "express",
+        "rest api"
+    ],
+    "data_science": [
+        "machine learning",
+        "ml",
+        "deep learning",
+        "artificial intelligence",
+        "ai",
+        "nlp",
+        "computer vision",
+        "data analysis",
+        "data visualization",
+        "statistics",
+        "pandas",
+        "numpy",
+        "matplotlib",
+        "seaborn",
+        "scikit learn",
+        "tensorflow",
+        "keras"
+    ],
+    "cloud": [
+        "aws",
+        "azure",
+        "gcp",
+        "firebase",
+        "vercel",
+        "netlify"
+    ],
+    "tools": [
+        "git",
+        "github",
+        "docker",
+        "kubernetes",
+        "postman",
+        "jira",
+        "linux",
+        "vscode",
+        "jupyter notebook"
+    ],
+    "database": [
+        "sql",
+        "mysql",
+        "postgresql",
+        "sqlite",
+        "mongodb",
+        "redis"
+    ],
+    "soft_skills": [
+        "problem solving",
+        "communication",
+        "teamwork",
+        "leadership",
+        "time management",
+        "adaptability",
+        "critical thinking"
+    ],
+    "aliases": {
+        "machine learning": [
+            "ml",
+            "deep learning"
+        ],
+        "artificial intelligence": [
+            "ai"
+        ],
+        "javascript": [
+            "js"
+        ],
+        "typescript": [
+            "ts"
+        ],
+        "node": [
+            "nodejs",
+            "node js"
+        ],
+        "react": [
+            "reactjs",
+            "react js"
+        ],
+        "next js": [
+            "nextjs"
+        ],
+        "scikit learn": [
+            "sklearn"
+        ],
+        "postgresql": [
+            "postgres"
+        ],
+        "jupyter notebook": [
+            "jupyter"
+        ]
+    }
+}

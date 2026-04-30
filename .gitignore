@@ -1,0 +1,56 @@
+```gitignore
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Environment variables
+.env
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build files
+build/
+dist/
+*.egg-info/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# SQLite database
+*.db
+*.sqlite3
+
+# Test cache
+.pytest_cache/
+
+# Coverage reports
+.coverage
+htmlcov/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Node modules (if frontend added later)
+node_modules/
+
+# Uploads / generated resumes
+uploads/
+generated/
+output/
+```

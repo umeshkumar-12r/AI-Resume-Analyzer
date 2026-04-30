@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Analyzer</title>
+    <meta name="description" content="AI powered resume analyzer to match your skills with job descriptions.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="glass-container">
+        <header>
+            <h1>AI Resume Analyzer <i class="fa-solid fa-rocket animate-rocket"></i></h1>
+            <p class="subtitle">Match your skills with job requirements instantly</p>
+        </header>
+
+        <div class="main-content">
+            <div class="upload-section">
+                <div class="upload-dropzone" id="upload-dropzone">
+                    <div class="dropzone-content">
+                        <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                        <p class="primary-text">Drag & Drop your resume here</p>
+                        <p class="secondary-text">or click to browse (.pdf, .doc, .docx)</p>
+                        <input type="file" id="resume" class="file-input" accept=".pdf,.doc,.docx">
+                    </div>
+                </div>
+                <div id="file-name-display" class="file-name-display hidden">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <span id="file-name-text">No file selected</span>
+                    <i class="fa-solid fa-xmark remove-file" id="remove-file" title="Remove file"></i>
+                </div>
+            </div>
+
+            <div class="jd-section">
+                <div class="textarea-wrapper">
+                    <label for="jd"><i class="fa-solid fa-briefcase"></i> Job Description</label>
+                    <textarea id="jd"
+                        placeholder="Paste the complete job description here to analyze against your resume..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-row">
+            <button onclick="getAISuggestion()" id="ai-btn">
+                🤖 Get AI Suggestions
+            </button>
+            <button class="btn-primary analyze-btn" id="analyze-btn" onclick="analyze()">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span>Analyze Resume</span>
+            </button>
+        </div>
+        <div id="loading-state" class="loading-state hidden">
+            <div class="spinner"></div>
+            <p>Analyzing and comparing skills...</p>
+        </div>
+
+        <div id="result" class="result-container hidden">
+            <!-- Content will be populated by script.js -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
