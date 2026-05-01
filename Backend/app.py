@@ -1,3 +1,7 @@
+# 🔥 Load environment FIRST
+from dotenv import load_dotenv
+load_dotenv()
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
@@ -6,7 +10,8 @@ from utils import (
     load_skills,
     extract_skills,
     calculate_score,
-    semantic_skill_match
+    semantic_skill_match,
+    generate_ai_feedback
 )
 
 app = Flask(__name__)
@@ -18,6 +23,7 @@ def home():
     return "Resume Analyzer Running 🚀"
 
 
+# 🚀 Main Analysis Route
 @app.route('/analyze', methods=['POST'])
 def analyze():
     if 'resume' not in request.files:
@@ -39,16 +45,16 @@ def analyze():
     resume_skills = extract_skills(resume_text, skills_list, aliases)
     jd_skills = extract_skills(jd_text.lower(), skills_list, aliases)
 
-    # 🎯 Keyword-based score
+    # 🎯 Keyword score
     skill_score, matched = calculate_score(resume_skills, jd_skills)
 
-    # 🤖 Semantic skill matching
+    # 🤖 Semantic matching
     semantic_matched = semantic_skill_match(resume_text, jd_skills)
 
-    # 🔥 Merge both matches
+    # 🔥 Merge matches
     final_matched = list(set(matched + semantic_matched))
 
-    # 📊 Final score based on merged matches
+    # 📊 Final score
     final_score = round(
         (len(final_matched) / len(jd_skills)) * 100, 2
     ) if jd_skills else 0
@@ -60,7 +66,9 @@ def analyze():
         "matched_skills": final_matched,
         "missing_skills": list(set(jd_skills) - set(final_matched))
     })
-    
+
+
+# 🤖 AI Suggestion Route
 @app.route('/ai-suggest', methods=['POST'])
 def ai_suggest():
     if 'resume' not in request.files:
