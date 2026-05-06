@@ -7,6 +7,8 @@ const fileInput = document.getElementById('resume');
 const fileNameDisplay = document.getElementById('file-name-display');
 const fileNameText = document.getElementById('file-name-text');
 const removeFileBtn = document.getElementById('remove-file');
+let selectedFile = null;
+
 
 // Prevent default drag behavior
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
@@ -48,6 +50,9 @@ fileInput.addEventListener('change', (e) => {
 
 // 🔥 Central handler
 function handleFile(file) {
+
+    selectedFile = file; // 🔥 store file globally
+
     fileNameText.textContent = file.name;
     dropzone.style.display = 'none';
     fileNameDisplay.classList.remove('hidden');
@@ -55,6 +60,9 @@ function handleFile(file) {
 
 // Remove file
 removeFileBtn.addEventListener('click', () => {
+
+    selectedFile = null;
+
     fileInput.value = '';
     dropzone.style.display = 'flex';
     fileNameDisplay.classList.add('hidden');
@@ -65,7 +73,7 @@ removeFileBtn.addEventListener('click', () => {
 // ===============================
 
 async function analyze() {
-    const file = fileInput.files[0];
+    const file = selectedFile;
     const jd = document.getElementById("jd").value;
     const btn = document.getElementById("analyze-btn");
     const loadingState = document.getElementById("loading-state");
