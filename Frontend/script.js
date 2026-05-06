@@ -193,10 +193,11 @@ function displayResults(data) {
 // ===============================
 
 async function getAISuggestion() {
-    const file = fileInput.files[0];
-    const jd = document.getElementById("jd").value;
-    const resultContainer = document.getElementById("result");
 
+    const file = selectedFile;
+    const jd = document.getElementById("jd").value;
+
+    const aiContainer = document.getElementById("ai-result");
 
     if (!file) {
         alert("Upload resume first");
@@ -212,9 +213,18 @@ async function getAISuggestion() {
     formData.append("resume", file);
     formData.append("jd", jd);
 
-    resultContainer.innerHTML += `<p>🤖 Generating AI suggestions...</p>`;
+    // Show loading state
+    aiContainer.classList.remove("hidden");
+
+    aiContainer.innerHTML = `
+        <div class="ai-box">
+            <h3>🤖 AI Suggestions</h3>
+            <p>Generating AI suggestions...</p>
+        </div>
+    `;
 
     try {
+
         let res = await fetch("http://127.0.0.1:5000/ai-suggest", {
             method: "POST",
             body: formData
@@ -222,16 +232,22 @@ async function getAISuggestion() {
 
         let data = await res.json();
 
-        resultContainer.innerHTML += `
-        <div class="ai-box">
-            <h3>🤖 AI Suggestions</h3>
-            <pre>${data.ai_feedback}</pre>
-        </div>
-    `;
+        aiContainer.innerHTML = `
+            <div class="ai-box">
+                <h3>🤖 AI Suggestions</h3>
+                <pre>${data.ai_feedback}</pre>
+            </div>
+        `;
+
     } catch (err) {
-        alert("AI request failed");
+
+        aiContainer.innerHTML = `
+            <div class="ai-box">
+                <h3>⚠️ Error</h3>
+                <p>AI request failed.</p>
+            </div>
+        `;
+
         console.error(err);
     }
-
-
 }
