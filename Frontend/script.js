@@ -193,6 +193,7 @@ function displayResults(data) {
     setTimeout(() => {
         document.getElementById('progress-bar').style.width = `${finalScore}%`;
     }, 100);
+    
 
 }
 
