@@ -265,3 +265,46 @@ def prioritize_missing_skills(missing_skills):
             priority["low"].append(skill)
 
     return priority
+def analyze_resume_sections(resume_text):
+
+    sections = {
+        "skills": 0,
+        "projects": 0,
+        "experience": 0,
+        "education": 0
+    }
+
+    resume_lower = resume_text.lower()
+
+# Skills section
+    if "skills" in resume_lower:
+        sections["skills"] += 25
+
+# Projects section  
+    if "project" in resume_lower or "projects" in resume_lower:
+        sections["projects"] += 25
+
+# Experience section
+    if "experience" in resume_lower or "work experience" in resume_lower:
+        sections["experience"] += 25
+
+# Education section
+    if "education" in resume_lower:
+        sections["education"] += 25
+
+# Bonus scoring based on content length
+    words = len(resume_text.split())
+
+    if words > 300:
+        sections["projects"] += 20
+        sections["experience"] += 20
+
+    if words > 500:
+        sections["skills"] += 15
+        sections["education"] += 15
+
+# Cap scores at 100
+    for key in sections:
+        sections[key] = min(sections[key], 100)
+
+    return sections
