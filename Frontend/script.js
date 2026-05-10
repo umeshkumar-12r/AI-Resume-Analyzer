@@ -134,7 +134,6 @@ async function analyze() {
 function displayResults(data) {
     const resultContainer = document.getElementById("result");
 
-
     const finalScore = Math.round(data.final_score);
 
     let scoreClass = "score-low";
@@ -188,15 +187,31 @@ function displayResults(data) {
             <div class="tags-container">${missingTags}</div>
         </div>
     </div>
-`;
+    `;
+
+    // ===============================
+    // 📂 SECTION SCORE ANALYSIS
+    // ===============================
+
+    const sectionScores = data.section_scores;
+
+    let sectionHTML = `
+    <div class="section-analysis">
+        <h2>📂 Resume Section Analysis</h2>
+
+        ${createSectionBar("Skills", sectionScores.skills)}
+        ${createSectionBar("Projects", sectionScores.projects)}
+        ${createSectionBar("Experience", sectionScores.experience)}
+        ${createSectionBar("Education", sectionScores.education)}
+    </div>
+    `;
+
+    resultContainer.innerHTML += sectionHTML;
 
     setTimeout(() => {
         document.getElementById('progress-bar').style.width = `${finalScore}%`;
     }, 100);
-    
-
 }
-
 // ===============================
 // 🤖 AI SUGGESTIONS
 // ===============================
