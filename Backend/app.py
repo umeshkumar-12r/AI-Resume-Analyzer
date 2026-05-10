@@ -14,7 +14,8 @@ from utils import (
     semantic_score,
     calculate_final_score,
     generate_ai_feedback,
-    prioritize_missing_skills
+    prioritize_missing_skills,
+    analyze_resume_sections
 )
 
 app = Flask(__name__)
@@ -40,6 +41,9 @@ def analyze():
 
     # 📄 Extract text
     resume_text = extract_text_from_pdf(file)
+    # section-wise resume analysis
+    
+    section_scores = analyze_resume_sections(resume_text)
 
     # 📚 Load skills
     skills_list, aliases = load_skills()
@@ -75,7 +79,8 @@ def analyze():
         "semantic_score": round(semantic, 2),
         "matched_skills": final_matched,
         "missing_skills": missing_skills,
-        "priority_skills": priority_skills
+        "priority_skills": priority_skills,
+        "section_scores": section_scores,
     })
 
 
