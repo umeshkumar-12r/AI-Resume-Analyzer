@@ -212,6 +212,35 @@ function displayResults(data) {
         document.getElementById('progress-bar').style.width = `${finalScore}%`;
     }, 100);
 }
+// Helper Function
+function createSectionBar(title, score) {
+
+    let barClass = "low";
+
+    if (score >= 75) {
+        barClass = "high";
+    } else if (score >= 40) {
+        barClass = "medium";
+    }
+
+    return `
+        <div class="section-score-card">
+
+            <div class="section-score-header">
+                <span>${title}</span>
+                <span>${score}%</span>
+            </div>
+
+            <div class="section-progress-container">
+                <div 
+                    class="section-progress-bar ${barClass}"
+                    style="width:${score}%">
+                </div>
+            </div>
+
+        </div>
+    `;
+}
 // ===============================
 // 🤖 AI SUGGESTIONS
 // ===============================
