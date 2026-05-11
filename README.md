@@ -19,7 +19,7 @@ This tool evaluates resumes against job descriptions and provides actionable ins
 
 ## 🛠️ Tech Stack
 
-* **Frontend:** Streamlit
+* **Frontend:** Html,css
 * **Backend:** Flask
 * **AI Model:** Google Gemini AI
 * **Language:** Python
