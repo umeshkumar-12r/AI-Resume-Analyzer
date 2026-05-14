@@ -133,7 +133,7 @@ http://localhost:8501
 
 ## 📊 Example Output
 
-* **Match Score:** 78/100
+* **Match Score:** 88/100
 * **Missing Skills:** Docker, Kubernetes, CI/CD
 * **Role Alignment:** Moderate
 * **Suggestions:**
