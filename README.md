@@ -7,7 +7,7 @@ This tool evaluates resumes against job descriptions and provides actionable ins
 
 ## 🚀 Features
 
-* 📄 Upload Resume (PDF )
+* 📄 Upload Resume in PDF Format
 * 🧠 AI-based Resume Analysis using Gemini
 * 📊 Match Score (0–100)
 * 🔍 Missing Keywords & Skills Detection
